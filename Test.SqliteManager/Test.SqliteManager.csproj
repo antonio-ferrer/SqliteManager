@@ -76,6 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonAccessDataObjectHelper\CommonAccessDataObjectHelper.csproj">
+      <Project>{d495c9bf-b691-473b-ba31-ecabf5ec774a}</Project>
+      <Name>CommonAccessDataObjectHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SqliteManager\SqliteManager.csproj">
       <Project>{1f3c859b-6e13-4442-8c11-5aa499b606b4}</Project>
       <Name>SqliteManager</Name>

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using CommonAccessDataObjectHelper;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SqliteManager;
 using System;
 using System.CodeDom;
@@ -58,7 +59,7 @@ namespace Test.SqliteManager
             {
                 StringSqlCommand cmd = new StringSqlCommand("Select @p1, @p2, @p3", 1, 2, 3);
                 var arrayValues = cmd.ConvertParameters((p) => (int)p.Value);
-                var arrayNames = cmd.ConvertParameters((p) => p.Key);
+                var arrayNames = cmd.ConvertParameters((p) => p.Name);
                 if(arrayValues.GetType().FullName != typeof(int[]).FullName)
                 {
                     Assert.Fail();

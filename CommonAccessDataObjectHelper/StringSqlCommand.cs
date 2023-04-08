@@ -4,13 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace SqliteManager
+namespace CommonAccessDataObjectHelper
 {
-    public class StringSqlCommand : IEnumerable<KeyValuePair<string, object>>
+    public class StringSqlCommand : IEnumerable<PackedParameter>
     {
-        private readonly Dictionary<string, object> parameters = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<string, PackedParameter> parameters = new Dictionary<string, PackedParameter>(StringComparer.OrdinalIgnoreCase);
         private readonly string commandText;
         public static string DefaultParameterIdentifier
+        {
+            get;
+            set;
+        }
+        public static bool DoNotUseDistinctWhenCatchParametersFromCommand
         {
             get;
             set;
@@ -18,6 +23,7 @@ namespace SqliteManager
         static StringSqlCommand()
         {
             DefaultParameterIdentifier = "@";
+            DoNotUseDistinctWhenCatchParametersFromCommand = true;
         }
         public object this[string parameterName]
         {
@@ -25,8 +31,8 @@ namespace SqliteManager
             {
                 if (string.IsNullOrWhiteSpace(parameterName))
                     throw new ArgumentException("invalid parameter name");
-                if(parameters.ContainsKey(parameterName))
-                    return parameters[parameterName];
+                if (parameters.ContainsKey(parameterName))
+                    return parameters[parameterName].Value;
                 return null;
             }
             set
@@ -35,11 +41,11 @@ namespace SqliteManager
                     throw new ArgumentException("invalid parameter name");
                 if (parameters.ContainsKey(parameterName))
                 {
-                    parameters[parameterName] = value ?? Convert.DBNull;
+                    parameters[parameterName].Value = value ?? Convert.DBNull;
                 }
                 else
                 {
-                    parameters.Add(parameterName, value ?? Convert.DBNull);
+                    parameters.Add(parameterName, new PackedParameter { Name = parameterName, Value = value ?? Convert.DBNull });
                 }
             }
         }
@@ -50,14 +56,14 @@ namespace SqliteManager
             return this;
         }
 
-        public IEnumerator<KeyValuePair<string, object>> GetEnumerator()
+        public IEnumerator<PackedParameter> GetEnumerator()
         {
-            return parameters.GetEnumerator();
+            return parameters.Values.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return parameters.GetEnumerator();
+            return parameters.Values.GetEnumerator();
         }
 
         private StringSqlCommand() { }
@@ -68,22 +74,34 @@ namespace SqliteManager
             if (sequencedValues.Length > 0)
             {
                 Regex rxParameters = new Regex($@"{DefaultParameterIdentifier}\w+");
-                var parametersNames = rxParameters.Matches(commantText).Cast<Match>()
-                    .Select(m => m.Value.ToLower()).Distinct().ToArray();
+                var parameterData = rxParameters.Matches(commantText).Cast<Match>()
+                    .Select(m => m.Value.ToLower());
+                string[] parametersNames;
+                if (DoNotUseDistinctWhenCatchParametersFromCommand)
+                {
+                    parametersNames = parameterData.ToArray();
+                }
+                else
+                {
+                    parametersNames = parameterData.Distinct().ToArray();
+                }
+
                 if (parametersNames.Length != sequencedValues.Length)
                 {
                     throw new ArgumentOutOfRangeException(nameof(sequencedValues), "the quantity of parameters must be the same size of the parameters values");
                 }
+                string key;
                 for (int i = 0; i < sequencedValues.Length; i++)
                 {
-                    parameters.Add(parametersNames[i], sequencedValues[i]);
+                    key = parametersNames[i];
+                    parameters.Add(key, new PackedParameter { Name = key, Value = sequencedValues[i] });
                 }
             }
         }
 
-        public T[] ConvertParameters<T>(Func<KeyValuePair<string,object>, T> parse)
+        public T[] ConvertParameters<T>(Func<PackedParameter, T> parse)
         {
-            return parameters.Select(p => parse(p)).ToArray();
+            return parameters.Values.Select(p => parse(p)).ToArray();
         }
 
         public static implicit operator string(StringSqlCommand cmd)
@@ -100,6 +118,8 @@ namespace SqliteManager
         {
             return commandText;
         }
+
+        public PackedParameter GetParameter(string name) => (parameters.ContainsKey(name)) ? parameters[name] : null;
 
         public bool HasParameter => parameters.Count > 0;
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommonAccessDataObjectHelper;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
@@ -33,7 +34,7 @@ namespace SqliteManager
                 {
                     foreach (var p in stringSqlCommand)
                     {
-                        command.Parameters.AddWithValue(p.Key, p.Value);
+                        command.Parameters.AddWithValue(p.Name, p.Value);
                     }
                 }
                 command.ExecuteNonQuery();
@@ -45,20 +46,7 @@ namespace SqliteManager
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                SQLiteCommand command = new SQLiteCommand(stringSqlCommand, connection);
-                if (stringSqlCommand.HasParameter)
-                {
-                    foreach (var p in stringSqlCommand)
-                    {
-                        command.Parameters.AddWithValue(p.Key, p.Value);
-                    }
-                }
-                DataTable tb = new DataTable();
-                using (var reader = command.ExecuteReader())
-                {
-                    tb.Load(reader);
-                }
-                return tb;
+                return connection.GetDataTable(stringSqlCommand);
             }
         }
 
@@ -67,27 +55,7 @@ namespace SqliteManager
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                SQLiteCommand command = new SQLiteCommand(stringSqlCommand, connection);
-                if (stringSqlCommand.HasParameter)
-                {
-                    foreach (var p in stringSqlCommand)
-                    {
-                        command.Parameters.AddWithValue(p.Key, p.Value);
-                    }
-                }
-                List<T> entities = new List<T>();
-                using (var reader = command.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        do
-                        {
-                            entities.Add(parse(reader));
-                        }
-                        while (reader.Read());
-                    }
-                }
-                return entities;
+                return connection.GetElements<T>(stringSqlCommand, parse);
             }
         }
     }

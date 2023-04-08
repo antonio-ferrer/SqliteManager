@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteManager", "SqliteManager\SqliteManager.csproj", "{1F3C859B-6E13-4442-8C11-5AA499B606B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqliteManager", "SqliteManager\SqliteManager.csproj", "{1F3C859B-6E13-4442-8C11-5AA499B606B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.SqliteManager", "Test.SqliteManager\Test.SqliteManager.csproj", "{E1A82639-6800-49C8-A386-94C973D18958}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalCryptoDb", "LocalCryptoDb\LocalCryptoDb.csproj", "{1452D4FB-148C-4F40-B06C-190C25A026D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionManager", "EncryptionManager\EncryptionManager.csproj", "{C0AA5B47-98BB-4C99-B1F9-BFD55975CF28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.EncryptionManager", "Test.EncryptionManager\Test.EncryptionManager.csproj", "{7B77FFB1-A868-42E7-A7C7-2F6402D1CBEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonAccessDataObjectHelper", "CommonAccessDataObjectHelper\CommonAccessDataObjectHelper.csproj", "{D495C9BF-B691-473B-BA31-ECABF5EC774A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{E1A82639-6800-49C8-A386-94C973D18958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1A82639-6800-49C8-A386-94C973D18958}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1A82639-6800-49C8-A386-94C973D18958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1452D4FB-148C-4F40-B06C-190C25A026D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1452D4FB-148C-4F40-B06C-190C25A026D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1452D4FB-148C-4F40-B06C-190C25A026D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1452D4FB-148C-4F40-B06C-190C25A026D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0AA5B47-98BB-4C99-B1F9-BFD55975CF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0AA5B47-98BB-4C99-B1F9-BFD55975CF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0AA5B47-98BB-4C99-B1F9-BFD55975CF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0AA5B47-98BB-4C99-B1F9-BFD55975CF28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B77FFB1-A868-42E7-A7C7-2F6402D1CBEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B77FFB1-A868-42E7-A7C7-2F6402D1CBEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B77FFB1-A868-42E7-A7C7-2F6402D1CBEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B77FFB1-A868-42E7-A7C7-2F6402D1CBEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D495C9BF-B691-473B-BA31-ECABF5EC774A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D495C9BF-B691-473B-BA31-ECABF5EC774A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D495C9BF-B691-473B-BA31-ECABF5EC774A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D495C9BF-B691-473B-BA31-ECABF5EC774A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
