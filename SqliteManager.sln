@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteManager", "SqliteManager\SqliteManager.csproj", "{1F3C859B-6E13-4442-8C11-5AA499B606B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.SqliteManager", "Test.SqliteManager\Test.SqliteManager.csproj", "{E1A82639-6800-49C8-A386-94C973D18958}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F3C859B-6E13-4442-8C11-5AA499B606B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F3C859B-6E13-4442-8C11-5AA499B606B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F3C859B-6E13-4442-8C11-5AA499B606B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F3C859B-6E13-4442-8C11-5AA499B606B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A82639-6800-49C8-A386-94C973D18958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A82639-6800-49C8-A386-94C973D18958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A82639-6800-49C8-A386-94C973D18958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A82639-6800-49C8-A386-94C973D18958}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDC31790-CBFE-4C0E-B632-D35717387447}
+	EndGlobalSection
+EndGlobal
