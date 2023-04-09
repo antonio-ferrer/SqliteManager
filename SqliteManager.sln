@@ -7,13 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqliteManager", "SqliteMana
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.SqliteManager", "Test.SqliteManager\Test.SqliteManager.csproj", "{E1A82639-6800-49C8-A386-94C973D18958}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalCryptoDb", "LocalCryptoDb\LocalCryptoDb.csproj", "{1452D4FB-148C-4F40-B06C-190C25A026D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalCryptoDb", "LocalCryptoDb\LocalCryptoDb.csproj", "{1452D4FB-148C-4F40-B06C-190C25A026D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionManager", "EncryptionManager\EncryptionManager.csproj", "{C0AA5B47-98BB-4C99-B1F9-BFD55975CF28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptionManager", "EncryptionManager\EncryptionManager.csproj", "{C0AA5B47-98BB-4C99-B1F9-BFD55975CF28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.EncryptionManager", "Test.EncryptionManager\Test.EncryptionManager.csproj", "{7B77FFB1-A868-42E7-A7C7-2F6402D1CBEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.EncryptionManager", "Test.EncryptionManager\Test.EncryptionManager.csproj", "{7B77FFB1-A868-42E7-A7C7-2F6402D1CBEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonAccessDataObjectHelper", "CommonAccessDataObjectHelper\CommonAccessDataObjectHelper.csproj", "{D495C9BF-B691-473B-BA31-ECABF5EC774A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonAccessDataObjectHelper", "CommonAccessDataObjectHelper\CommonAccessDataObjectHelper.csproj", "{D495C9BF-B691-473B-BA31-ECABF5EC774A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.LocalCryptoDb", "Test.LocalCryptoDb\Test.LocalCryptoDb.csproj", "{FD569FB7-2BE2-44B1-B2C5-8C4C859B38C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalCryptDbConsoleApp", "LocalCryptDbConsoleApp\LocalCryptDbConsoleApp.csproj", "{8550C03B-E05D-41B2-ABF5-B360ECAA9F50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHelper", "FileHelper\FileHelper.csproj", "{C67E2922-D613-47A9-B4B9-DB4742EE317E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{D495C9BF-B691-473B-BA31-ECABF5EC774A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D495C9BF-B691-473B-BA31-ECABF5EC774A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D495C9BF-B691-473B-BA31-ECABF5EC774A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD569FB7-2BE2-44B1-B2C5-8C4C859B38C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD569FB7-2BE2-44B1-B2C5-8C4C859B38C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD569FB7-2BE2-44B1-B2C5-8C4C859B38C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD569FB7-2BE2-44B1-B2C5-8C4C859B38C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8550C03B-E05D-41B2-ABF5-B360ECAA9F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8550C03B-E05D-41B2-ABF5-B360ECAA9F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8550C03B-E05D-41B2-ABF5-B360ECAA9F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8550C03B-E05D-41B2-ABF5-B360ECAA9F50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C67E2922-D613-47A9-B4B9-DB4742EE317E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C67E2922-D613-47A9-B4B9-DB4742EE317E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C67E2922-D613-47A9-B4B9-DB4742EE317E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C67E2922-D613-47A9-B4B9-DB4742EE317E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
