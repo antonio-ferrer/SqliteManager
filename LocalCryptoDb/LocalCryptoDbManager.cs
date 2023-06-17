@@ -63,6 +63,12 @@ namespace LocalCryptoDb
             return Initialize(getEcryptedDb, writeEncryptDb, workingFilePath);
         }
 
+        public LocalCryptoDbManager Initialize(string encryptedDbPath)
+        {
+            string tempDbPath = $@"{Path.GetTempPath()}\lcdb_{Path.GetRandomFileName()}"; 
+            return Initialize(encryptedDbPath, tempDbPath);
+        }
+
         public ICommonDbManager Initialize(params KeyValuePair<string, string>[] config)
         {
             CheckIfIsDisposed();

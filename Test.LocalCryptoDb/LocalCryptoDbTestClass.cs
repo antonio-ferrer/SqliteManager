@@ -9,7 +9,7 @@ namespace Test.LocalCryptoDb
     {
 
         private const string DbDirectories = @"C:\sqliteDbs";
-        private string tempDbPath;
+        private string? tempDbPath;
 
         [Fact]
         public void CreateEncryptDb()
